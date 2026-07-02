@@ -102,7 +102,7 @@ $c->{ref2029_cc_report}->{custom_export} = {
         {
             my $repo = $dataobj->repository;
             my $flag = $ref2029_cc->value( "compliant" ) || 0;
-            my( $result, $reason ) = $ref2029_cc->test_COMPLIANT( $repo, $flag );
+            my( $result, $reason ) = $ref2029_cc->test_COMPLIANT( $repo, $dataobj, $flag );
 
             if( $result )
             {
