@@ -97,9 +97,9 @@
           <datasetid>document</datasetid>
           <filename>epm/hefce_oa/cfg/cfg.d/zz_ref2029_cc.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>239a6a578165308f276b4dc41f8b2fc7</hash>
+          <hash>2523047853bd1b5e84d47f8e7d01b5bf</hash>
           <hash_type>MD5</hash_type>
-          <filesize>8463</filesize>
+          <filesize>9740</filesize>
         </file>
         <file>
           <datasetid>document</datasetid>
@@ -651,7 +651,7 @@
       <content>coverimage</content>
     </document>
   </documents>
-  <version>3.0.2</version>
+  <version>3.0.3</version>
   <controller>EPMC::HefceOA</controller>
   <creators>
     <item>

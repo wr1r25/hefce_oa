@@ -27,6 +27,7 @@ $c->{ref2029_cc_report}->{exportfields} = {
         official_url
     )],
     ref2029 => [qw (
+        hoa_compliant
         hoa_ref_pan
         ref2029_cc.ref2029_gold_oa
         ref2029_cc.ref2029_pub_agreement
@@ -61,6 +62,7 @@ $c->{ref2029_cc_report}->{exportfield_defaults} = [ qw(
     isbn
     issn
     official_url
+    hoa_compliant
     hoa_ref_pan
     ref2029_cc.ref2029_gold_oa
     ref2029_cc.ref2029_pub_agreement
@@ -77,6 +79,49 @@ $c->{ref2029_cc_report}->{exportfield_defaults} = [ qw(
     ref2029_cc.ref2029_ex_fur_txt
 )];
 
+$c->{ref2029_cc_report}->{custom_export} = {
+    hoa_compliant => sub {
+        my( $dataobj, $plugin ) = @_;
+
+        # we need a ref2029 cc record
+        my $ref2029_cc = undef;
+        if( $dataobj->is_set( "ref2029_cc" ) )
+        {
+            $ref2029_cc = $dataobj->value( "ref2029_cc" );
+        }
+
+        if( !defined $ref2029_cc )
+        {
+            return "Not Compliant (No REF2029 Compliance data record)";
+        }
+        elsif( $dataobj->value( "ref2029_cc" )->value( "scope" ) ne "26-28" )
+        {
+            return "Not Compliant (Not in 26-28 scope)";
+        }
+        else
+        {
+            my $repo = $dataobj->repository;
+            my $flag = $ref2029_cc->value( "compliant" ) || 0;
+            my( $result, $reason ) = $ref2029_cc->test_COMPLIANT( $repo, $flag );
+
+            if( $result )
+            {
+                if( $reason eq "acc_potential_emb" || $reason eq "acc_potential" )
+                {
+                   return "Compliant pending open access";
+                }
+                else
+                {
+                    return "Compliant";
+                }
+            }
+            else
+            {
+                return "Not Compliant";
+            }
+        }
+    }
+};
 
 # 7.5 Licensing requirements
 # Array used to test license requirements
