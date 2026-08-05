@@ -117,9 +117,9 @@ sub _process {
 		if ($response->code == 404) {
         		print "Could not find DOI '" . $eprint->get_value("id_number") . "' for EPrint " . $eprint->get_id . "\n";
 		} else {
-        _fatal($repo, "Error from unpaywall", $response);
-};
-    }else{
+			_fatal($repo, "Error from unpaywall", $response);
+ 		};
+	}else{
         my $up_data =  $json->utf8->decode( $response->content );
         my $ep_oai_id = EPrints::OpenArchives::to_oai_identifier( EPrints::OpenArchives::archive_id( $repo ), $eprint->get_id );
 
@@ -136,8 +136,7 @@ sub _process {
             );
         }
 
-        my $repo_host = $repo->get_conf("host");
-
+        my $repo_host = $repo->get_conf("securehost") || $repo->get_conf("host");
         print "is_oa: ".$up_data->{is_oa}."\n";
         $audit->set_value( "up_is_oa", $up_data->{is_oa} == 1 ? "TRUE" : "FALSE" );
 
