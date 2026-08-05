@@ -237,24 +237,16 @@ $c->{hefce_oa}->{get_core} = sub {
     }
 };
 
-# lifted straight from UKETD plugin, which is based on render_possible_doi
-# if only a a non-redering version of this was in the core... :/
+
 $c->{hefce_oa}->{format_doi} = sub {
 
     my( $doi ) = @_;
+    my $parsed_doi = EPrints::DOI->parse( $doi );
 
-    # advice received is that just DOI is preferred to a URL
-    # logic taken from EPrints::Extras::render_possible_doi
-    if( $doi =~ m!^
-         (?:https?://(?:dx\.)?doi\.org/)?  # add this again later anyway
-         (?:doi:?\s*)?                   # don't need any namespace stuff
-         (10(\.[^./]+)+/.+)              # the actual DOI => $1
-     !ix )
-     {
-         # just use the last part - the actual DOI.
-         return $1;
-     }
-     return 0;
+    if (defined $parsed_doi) {
+        return $parsed_doi->to_string(noprefix => 1);
+    }
+    return 0;
 };
 
 
