@@ -133,7 +133,7 @@ sub _process {
         my $repo_host = $repo->get_conf("host");
 
         print "is_oa: ".$up_data->{is_oa}."\n";
-        $audit->set_value( "up_is_oa", uc( $up_data->{is_oa} ) );
+        $audit->set_value( "up_is_oa", $up_data->{is_oa} == 1 ? "TRUE" : "FALSE" );
 
         my $up_loc = $up_data->{best_oa_location};
         if( defined $up_loc )
