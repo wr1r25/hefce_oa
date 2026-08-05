@@ -112,7 +112,13 @@ sub _process {
     my $json = JSON->new->allow_nonref;
 
 	if( ! $response->is_success ){
+
+        # Handles if a record has a DOI that looks valid, but doesn't exist on unpaywall.
+		if ($response->code == 404) {
+        		print "Could not find DOI '" . $eprint->get_value("id_number") . "' for EPrint " . $eprint->get_id . "\n";
+		} else {
         _fatal($repo, "Error from unpaywall", $response);
+};
     }else{
         my $up_data =  $json->utf8->decode( $response->content );
         my $ep_oai_id = EPrints::OpenArchives::to_oai_identifier( EPrints::OpenArchives::archive_id( $repo ), $eprint->get_id );
