@@ -7,7 +7,6 @@ $c->{datasets}->{eprint}->{search}->{hefce_report} =
 		{ meta_fields => [ "date" ] },
 		{ meta_fields => [ "hoa_date_acc" ] },
 		{ meta_fields => [ "subjects" ] },
-		{ meta_fields => [ "type" ] },
 		{ meta_fields => [ "ispublished" ] },
 		{ meta_fields => [ "divisions" ] },
 		{ meta_fields => [ "publication" ] },
