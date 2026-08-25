@@ -226,7 +226,15 @@ sub update_data
             # we don't need to worry about the licence for this eprint (OA policy: 7.5.4)
             if( $self->is_set( "ref2029_pub_agreement" ) && $self->value( "ref2029_pub_agreement" ) eq "TRUE" )
             {
-                $self->set_value( "licensed_foa", EPrints::Time::get_iso_date() );
+                # we may have just set a pub agreement for the first time on an old record that previously had hoa_date_foa set
+                if( $eprint->is_set( "hoa_date_foa" ) )
+                {
+                    $self->set_value( "licensed_foa", $eprint->value( "hoa_date_foa" ) );
+                }
+                else
+                {
+                    $self->set_value( "licensed_foa", EPrints::Time::get_iso_date() );
+                }
                 last;
             }
             else # we do care about a licence

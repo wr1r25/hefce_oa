@@ -81,6 +81,7 @@
     <li>There is an <strong>access exception</strong> and the <strong>deposit</strong> and <strong>discovery</strong> requirements are met.</li>
     <li>There is a <strong>technical exception</strong>.</li>
     <li>There is a <strong>further</strong> or <strong>'other' exception</strong>.</li>
+    <li>Another reason is provided, e.g. the item is published via a 'Gold', 'Diamond' or 'Platinum' route; or a manual override has been applied.</li>
 </ul>
 </epp:phrase>
 
@@ -167,6 +168,7 @@ The <strong><epc:phrase ref="eprint_fieldname_hoa_emb_len"/></strong> must not e
     <li>There is an <strong>access exception</strong> and the <strong>deposit</strong> and <strong>discovery</strong> requirements are met.</li>
     <li>There is a <strong>technical exception</strong>.</li>
     <li>There is a <strong>'further' exception</strong>.</li>
+    <li>Another reason is provided, e.g. the item is published via a 'Gold', 'Diamond' or 'Platinum' route; or a manual override has been applied.</li>
 </ul>
 </epp:phrase>
 

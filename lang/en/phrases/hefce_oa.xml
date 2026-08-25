@@ -127,6 +127,8 @@ as part of our more detailed work to develop the post-2014 REF.
 <!-- compliance screen -->
 <epp:phrase id="Plugin/Screen/EPrint/HefceOA:title"><span id="hoa_tab_title"><epc:phrase ref="metapage_title_hefce_oa"/></span></epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/HefceOA:compliant"><span id="hoa_status" data-status="compliant">Congratulations, this item complies with the <epc:phrase ref="hefce"/> Open Access policy</span></epp:phrase>
+<epp:phrase id="Plugin/Screen/EPrint/HefceOA:compliant:gold"><span id="hoa_status" data-status="compliant">Congratulations, this item complies with the <epc:phrase ref="hefce"/> Open Access policy (Gold OA flag applied)</span></epp:phrase>
+<epp:phrase id="Plugin/Screen/EPrint/HefceOA:compliant:override"><span id="hoa_status" data-status="compliant">Congratulations, this item complies with the <epc:phrase ref="hefce"/> Open Access policy (manual override applied)</span></epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/HefceOA:non_compliant"><span id="hoa_status" data-status="non_compliant">Sorry, this item <strong>does not</strong> comply with the <epc:phrase ref="hefce"/> Open Access policy</span></epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/HefceOA:future_compliant"><span id="hoa_status" data-status="future_compliant">This item is not currently compliant. If the output (full text) is made open access by <epc:pin name="last_foa_date" /> it will become compliant.<br />This date is calculated from an embargo length of <strong><epc:pin name="hoa_emb_len" /> months</strong>. Please see the 'Access' tab below for more details.</span></epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/HefceOA:out_of_scope_alt">Out of Scope</epp:phrase>

@@ -28,15 +28,10 @@ $c->{plugins}{"Screen::Report::REF_CC_EX::2025"}{params}{disable} = 1;
 $c->{plugins}{"Screen::Report::REF_CC_EX::2026"}{params}{disable} = 1;
 $c->{plugins}{"Screen::Report::REF_CC_EX::2027"}{params}{disable} = 1;
 $c->{plugins}{"Export::Report::CSV::REF_CC"}{params}{disable} = 0;
-$c->{plugins}{"Screen::Report::REF_CC"}{params}{searchdatasetid} = "eprint";
-$c->{plugins}{"Screen::Report::REF_CC_EX"}{params}{searchdatasetid} = "eprint";
-
 
 #set which can have a custom search, allowing their filter function to be overwridden
 $c->{plugins}{"Screen::Report::REF_CC"}{params}{custom} = 1;
 $c->{plugins}{"Screen::Report::REF_CC_EX"}{params}{custom} = 1;
-
-$c->{search}->{hefce_report} = $c->{search}->{advanced};
 
 push @{ $c->{user_roles}->{editor} }, qw{ +eprint/hefce_oa };
 push @{ $c->{user_roles}->{admin} }, qw{ +eprint/hefce_oa };

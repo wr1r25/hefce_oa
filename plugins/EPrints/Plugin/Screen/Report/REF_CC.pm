@@ -220,7 +220,7 @@ sub apply_filters
     # this report should only include items published before the rule change in Jan 26
     my $pub_field = $ds->field( "hoa_date_pub" );
 	$self->{processor}->{search}->add_field( fields => $pub_field,
-		value => '-2025-12-31',
+        value => '2021-01-01-2025-12-31',
 		match => 'IN',
 	);
 

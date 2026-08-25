@@ -94,10 +94,10 @@ $c->{ref2029_cc_report}->{custom_export} = {
         {
             return "Not Compliant (No REF2029 Compliance data record)";
         }
-		elsif( $dataobj->value( "ref2029_cc" )->value( "scope" ) ne "26-28" )
-		{
+        elsif( $dataobj->value( "ref2029_cc" )->value( "scope" ) ne "26-28" )
+        {
             return "Not Compliant (Not in 26-28 scope)";
-		}
+        }
         else
         {
             my $repo = $dataobj->repository;
